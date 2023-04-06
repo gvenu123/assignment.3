@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <string.h>
+
+#define MAX_SIZE 100  // maximum size of the string
+
+int main()
+{
+    char str[MAX_SIZE];
+    int i, j, maxCount, currentCount, len;
+    char maxChar, currentChar;
+
+    printf("Enter a string : ");
+    fgets(str, MAX_SIZE, stdin);
+
+    len = strlen(str);
+
+    // initialize the maximum count to 0
+    maxCount = 0;
+
+    // loop through each character in the string
+    for (i = 0; i < len; i++) {
+        currentChar = str[i];
+        currentCount = 1;
+
+        // loop through the rest of the string to check for duplicates
+        for (j = i + 1; j < len; j++) {
+            if (currentChar == str[j] && currentChar != ' ') {
+                currentCount++;
+            }
+        }
+
+        // if current character count is greater than maximum count
+        if (currentCount > maxCount) {
+            maxCount = currentCount;
+            maxChar = currentChar;
+        }
+    }
+
+    printf("Max repeated character in the string = %c\n", maxChar);
+    printf("It occurs %d times\n", maxCount);
+
+    return 0;
+}
+output:
+Enter a string : Welcome to Sanfoundry's C Programming Class !
+Max repeated character in the string = o
+It occurs 4 times
