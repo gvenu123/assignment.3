@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+#define MAX_LEN 100
+
+int main() {
+    char str[MAX_LEN];
+    int sum = 0, i;
+
+    printf("Enter a string: ");
+    fgets(str, MAX_LEN, stdin);
+
+    for (i = 0; str[i] != '\0'; i++) {
+        sum += str[i];
+    }
+
+    printf("The sum of ASCII values of all characters in the string is %d.\n", sum);
+
+    return 0;
+}
+output:
+Enter a string: Hello, world!
+The sum of ASCII values of all characters in the string is 1112.
